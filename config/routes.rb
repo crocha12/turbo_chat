@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :rooms
+  resources :messages, only: [:create]
   root 'rooms#index'
 end

@@ -1,1 +1,10 @@
-Bem vindo a sala <%= @room.name %>
+<div class="max-w-3xl mx-auto mt-10 bg-gray-100 rounded-lg shadow-lg">
+  <div class="p-4">
+    <div class="flex items-center mb-4">
+      <%= link_to "<", rooms_path, class:"text-blue-500 text-bold text-xl" %>
+      <span class="ml-2 font-semibold"><%= @room.name %></span>
+    </div>
+  <%= render 'rooms/partials/messages', room: @room %>
+  </div>
+  <%= render 'rooms/partials/message_form' %>
+</div>
