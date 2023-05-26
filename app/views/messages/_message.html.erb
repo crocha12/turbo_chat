@@ -1,6 +1,7 @@
 <div class="flex items-start msg-<%= message.user.id %>">
   <div class="bg-white rounded-lg p-3 shadow-sm">
+    <h1 class="font-bold"><%= message.user.username %></h1>
     <p class="text-gray-800"><%= message.content %></p>
+    <span class="ml-2 text-xs text-gray-500"><%= message.created_at.strftime("enviado em %m de %b de %Y - %H:%M") %></span>
   </div>
-  <span class="ml-2 text-xs text-gray-500"><%= message.created_at %></span>
 </div>

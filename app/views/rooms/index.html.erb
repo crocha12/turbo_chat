@@ -4,7 +4,7 @@
   <% @rooms.each do |room| %>
     <div class="flex items-center justify-between mb-2">
       <p class="text-lg">
-        <%= link_to room.name, room, class:"text-blue-500 hover:underline" %>
+        <%= link_to room.name, room, class:"text-#{room.is_private ? "green-500" : "blue-500"} hover:underline" %>
       </p>
       <p>
         <%= link_to 'Editar', edit_room_path(room), class:"text-gray-500 hover:text-blue-500" %>
