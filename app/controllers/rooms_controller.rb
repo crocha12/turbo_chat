@@ -40,6 +40,21 @@ class RoomsController < ApplicationController
 		end
 	end
 
+	def list_users
+		@room = Room.find(params[:id])
+		@users = User.all
+	end
+
+	def toggle_participant
+		@participant = Participant.where(user_id: params[:user_id], room_id: params[:id]).first
+		if @participant
+			@participant.destroy
+		else
+			@participant = Participant.create(user_id: params[:user_id], room_id: params[:id])
+		end
+		redirect_to room_path(params[:id])
+	end
+
 	private
 		def room_params
 			params.require(:room).permit(:name, :is_private)

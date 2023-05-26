@@ -1,0 +1,14 @@
+<div class="p-8 ">
+  <div class="max-w-md mx-auto">
+    <h1 class="text-center font-bold text-xl mb-10">Lista de Usuários</h1>
+    <ul class="border rounded-lg">
+      <% @users.each do |user| %>
+      <li class="flex justify-between items-center py-2 px-4 border-b last:border-b-0 <%= 'bg-yellow-200' if user.is_room_member?(@room) %>">
+        <%= user.username %>
+        <%= button_to user.is_room_member?(@room) ? 'Remover' : 'Adicionar', toggle_participant_path(@room, user), class: "text-xs font-semibold #{ user.is_room_member?(@room) ? "text-red-500 ml-2" : "text-green-500"} ml-2", method: :put, data: { confirm: 'Tem certeza?' } %>
+      </li>
+    <% end %>
+    </ul>
+  <%= link_to 'Voltar', room_path(@room), class: "mt-4 block text-center w-full py-3 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" %>
+  </div>
+</div>
