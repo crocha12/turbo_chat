@@ -42,6 +42,9 @@ class RoomsController < ApplicationController
 
 	def list_users
 		@room = Room.find(params[:id])
+		if !@room.is_private?
+			redirect_to @room, alert: "This room is not private"
+		end
 		@users = User.all
 	end
 

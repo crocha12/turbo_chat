@@ -8,8 +8,10 @@
         <span class="ml-2 px-2 font-semibold"><%= @room.name %></span>
       </div>
       <div class="flex">
-        <%= link_to list_users_path, class:"text-blue-500 text-bold text-xl px-2" do %>
-          <%= image_tag "user-add.svg", class:"w-6 h-6" %>
+        <% if @room.is_private? %>
+          <%= link_to list_users_path, class:"text-blue-500 text-bold text-xl px-2" do %>
+            <%= image_tag "user-add.svg", class:"w-6 h-6" %>
+          <% end %>
         <% end %>
         <%= link_to edit_room_path(@room), class:"text-blue-500 text-bold text-xl" do %>
           <%= image_tag "settings.svg", class:"w-6 h-6" %>
