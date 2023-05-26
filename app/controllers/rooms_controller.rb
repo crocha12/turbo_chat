@@ -3,7 +3,9 @@ class RoomsController < ApplicationController
 	before_action :private_room, only: [:show]
 
 	def index
-		@rooms = Room.all
+		@rooms = Room
+			.where("is_private = ? OR is_private = ? AND id IN (?)", 
+				false, true, current_user.participants.pluck(:room_id))
 	end
 
 	def show

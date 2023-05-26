@@ -12,5 +12,6 @@
   <div class="mt-8">
     <%= form.submit 'Salvar', class: "w-full py-3 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" %>
   </div>
-  <%= link_to 'Voltar', rooms_path, class: "mt-4 block text-center w-full py-3 px-4 bg-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" %>
+  <% path = @room.persisted? ? room_path(@room) : rooms_path %>
+  <%= link_to 'Voltar', path, class: "mt-4 block text-center w-full py-3 px-4 bg-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" %>
 <% end %>
